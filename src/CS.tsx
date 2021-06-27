@@ -7,7 +7,7 @@ interface InputTypes {
     tamil: number;
     english: number;
     maths: number;
-    biology: number;
+    computer: number;
     physics: number;
     chemistry: number;
 }
@@ -18,7 +18,7 @@ const getMarks = ({
     tamil,
     english,
     maths,
-    biology,
+    computer,
     physics,
     chemistry,
 }: InputTypes) => {
@@ -33,8 +33,8 @@ const getMarks = ({
 
     const che = ((chemistry - 30) * 20) / 70;
 
-    const bio = ((biology - 30) * 20) / 70;
-    const eleventh_total = tam + eng + mat + phy + che + bio;
+    const comp = ((computer - 30) * 20) / 70;
+    const eleventh_total = tam + eng + mat + phy + che + comp;
 
     const total = tenth_avg * 6 + eleventh_total + 6 * 30;
     return Number(total.toFixed(2));
@@ -46,7 +46,7 @@ const getSubMarks = ({
     tamil,
     english,
     maths,
-    biology,
+    computer,
     physics,
     chemistry,
 }: InputTypes) => {
@@ -61,7 +61,7 @@ const getSubMarks = ({
 
     const che = ((chemistry - 30) * 20) / 70;
 
-    const bio = ((biology - 30) * 20) / 70;
+    const comp = ((computer - 30) * 20) / 70;
 
     const Tamil = tenth_avg + tam + 30;
 
@@ -73,7 +73,7 @@ const getSubMarks = ({
 
     const Chemistry = tenth_avg + che + 30;
 
-    const Biology = tenth_avg + bio + 30;
+    const Computer = tenth_avg + comp + 30;
 
     return {
         tamil: Number(Tamil.toFixed(2)),
@@ -81,7 +81,7 @@ const getSubMarks = ({
         maths: Number(Maths.toFixed(2)),
         physics: Number(Physics.toFixed(2)),
         chemistry: Number(Chemistry.toFixed(2)),
-        biology: Number(Biology.toFixed(2)),
+        computer: Number(Computer.toFixed(2)),
     };
 };
 const Input = ({
@@ -117,7 +117,7 @@ const App = () => {
         tamil: 0,
         english: 0,
         maths: 0,
-        biology: 0,
+        computer: 0,
         physics: 0,
         chemistry: 0,
     });
@@ -129,7 +129,7 @@ const App = () => {
         maths: 0,
         physics: 0,
         chemistry: 0,
-        biology: 0,
+        computer: 0,
     });
     return (
         <main className="container p-6">
@@ -192,9 +192,9 @@ const App = () => {
                     onChange={handleChange}
                 />
                 <Input
-                    value={(inputs as InputTypes).biology}
-                    name="biology"
-                    placeholder="Class 11 Biology Mark"
+                    value={(inputs as InputTypes).computer}
+                    name="computer"
+                    placeholder="Class 11 Computer Science Mark"
                     onChange={handleChange}
                 />
             </div>
@@ -230,7 +230,7 @@ const App = () => {
                 <br />
                 Chemistry: {marks.chemistry}
                 <br />
-                Biology: {marks.biology}
+                Computer Science: {marks.computer}
             </div>
         </main>
     );
